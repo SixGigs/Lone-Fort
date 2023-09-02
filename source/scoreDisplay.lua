@@ -7,13 +7,13 @@ local score
 function CreateScoreDisplay()
     scoreSprite = gfx.sprite.new()
     score = 0
-    updateDisplay()
+    UpdateDisplay()
     scoreSprite:setCenter(0, 0)
     scoreSprite:moveTo(320, 4)
     scoreSprite:add()
 end
 
-function updateDisplay()
+function UpdateDisplay()
     local scoreText = "Score: " .. score
     local textWidth, textHeight = gfx.getTextSize(scoreText)
     local scoreImage = gfx.image.new(textWidth, textHeight)
@@ -23,12 +23,12 @@ function updateDisplay()
     scoreSprite:setImage(scoreImage)
 end
 
-function incrementScore()
+function IncrementScore()
     score = score + 1
-    updateDisplay()
+    UpdateDisplay()
 end
 
 function ResetScore()
     score = 0
-    updateDisplay()
+    UpdateDisplay()
 end
