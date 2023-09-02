@@ -26,7 +26,7 @@ function Bullet:update()
             local collidedObject = collision['other']
             if collidedObject:isa(Enemy) then
                 collidedObject:remove()
-                incrementScore()
+                IncrementScore()
                 SetShakeAmount(5)
             end
         end

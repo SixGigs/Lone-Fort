@@ -7,18 +7,18 @@ local spawnTimer
 
 function StartSpawner()
     math.randomseed(pd.getSecondsSinceEpoch())
-    createTimer()
+    CreateTimer()
 end
 
-function createTimer()
+function CreateTimer()
     local spawnTime = math.random(500, 1000)
     spawnTimer = pd.timer.performAfterDelay(spawnTime, function ()
-        createTimer()
-        spawnEnemy()
+        CreateTimer()
+        SpawnEnemy()
     end)
 end
 
-function spawnEnemy()
+function SpawnEnemy()
     local spawnPosition = math.random(10, 230)
     Enemy(430, spawnPosition, 1)
 end
