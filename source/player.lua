@@ -12,6 +12,7 @@ function Player:init(x, y)
 	self:add()
 
 	self.speed = 3
+	self.shootSFX = pd.sound.fileplayer.new("sounds/shoot")
 end
 
 function Player:update()
@@ -26,6 +27,8 @@ function Player:update()
 	end
 
 	if pd.buttonJustPressed(pd.kButtonA) then
+		self.shootSFX:play()
 		Bullet(self.x + 16, self.y, 5)
+		SetShakeAmount(5)
 	end
 end

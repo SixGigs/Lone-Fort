@@ -17,6 +17,8 @@ function Bullet:init(x, y, speed)
 	self.speed = speed
 	self:moveTo(x, y)
 	self:add()
+
+	self.dieSFX = pd.sound.fileplayer.new("sounds/kill")
 end
 
 function Bullet:update()
@@ -25,9 +27,9 @@ function Bullet:update()
 		for index, collision in pairs(collisions) do
 			local collidedObject = collision['other']
 			if collidedObject:isa(Enemy) then
+				self.dieSFX:play()
 				collidedObject:remove()
 				IncrementScore()
-				SetShakeAmount(5)
 			end
 		end
 		self:remove()
