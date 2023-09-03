@@ -6,34 +6,34 @@ local gfx <const> = pd.graphics
 local spawnTimer
 
 function StartSpawner()
-    math.randomseed(pd.getSecondsSinceEpoch())
-    CreateTimer()
+	math.randomseed(pd.getSecondsSinceEpoch())
+	CreateTimer()
 end
 
 function CreateTimer()
-    local spawnTime = math.random(500, 1000)
-    spawnTimer = pd.timer.performAfterDelay(spawnTime, function ()
-        CreateTimer()
-        SpawnEnemy()
-    end)
+	local spawnTime = math.random(500, 1000)
+	spawnTimer = pd.timer.performAfterDelay(spawnTime, function ()
+		CreateTimer()
+		SpawnEnemy()
+	end)
 end
 
 function SpawnEnemy()
-    local spawnPosition = math.random(10, 230)
-    Enemy(430, spawnPosition, 1)
+	local spawnPosition = math.random(10, 230)
+	Enemy(430, spawnPosition, 1)
 end
 
 function StopSpawner()
-    if spawnTimer then
-        spawnTimer:remove()
-    end
+	if spawnTimer then
+		spawnTimer:remove()
+	end
 end
 
 function ClearEnemies()
-    local allSprites = gfx.sprite.getAllSprites()
-    for index, sprite in ipairs(allSprites) do
-        if sprite:isa(Enemy) then
-            sprite:remove()
-        end
-    end
+	local allSprites = gfx.sprite.getAllSprites()
+	for index, sprite in ipairs(allSprites) do
+		if sprite:isa(Enemy) then
+			sprite:remove()
+		end
+	end
 end
