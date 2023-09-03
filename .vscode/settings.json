@@ -6,6 +6,7 @@
         "Player",
         "class",
         "Bullet",
-        "Enemy"
+        "Enemy",
+        "Background"
     ]
 }
