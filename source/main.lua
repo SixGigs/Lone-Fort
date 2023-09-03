@@ -14,6 +14,7 @@ import "CoreLibs/timer"
 
 -- My LUA Files
 import "player"
+import "background"
 import "enemySpawner"
 import "scoreDisplay"
 import "screenShake"
@@ -38,6 +39,7 @@ function SetShakeAmount(amount)
 end
 
 CreateScoreDisplay()
+Background()
 Player(30, 120)
 StartSpawner()
 
