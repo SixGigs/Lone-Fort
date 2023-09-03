@@ -9,7 +9,7 @@ function Enemy:init(x, y, moveSpeed)
 	self:moveTo(x, y)
 	self:add()
 
-	self:setCollideRect(0, 0, self:getSize())
+	self:setCollideRect(8, 2, 15, 29)
 
 	self.moveSpeed = moveSpeed
 end

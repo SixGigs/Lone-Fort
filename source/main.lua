@@ -38,9 +38,9 @@ function SetShakeAmount(amount)
 	screenShakeSprite:SetShakeAmount(amount)
 end
 
-CreateScoreDisplay()
 Background()
 Player(30, 120)
+CreateScoreDisplay()
 StartSpawner()
 
 function pd.update()
