@@ -18,6 +18,9 @@ import "background"
 import "enemySpawner"
 import "scoreDisplay"
 import "screenShake"
+import "sceneManager"
+import "titleScene"
+import "gameScene"
 
 -- PlayDate shorthand constants
 local pd <const> = playdate
@@ -25,12 +28,15 @@ local gfx <const> = pd.graphics
 
 -- Create ScreenShake object
 local screenShakeSprite = ScreenShake()
+SCENE_MANAGER = SceneManager()
+
+TitleScene()
 
 -- Create the reset get function
 function ResetGame()
 	ResetScore()
-	ClearEnemies()
 	StopSpawner()
+	ClearEnemies()
 	StartSpawner()
 	SetShakeAmount(10)
 end
@@ -39,12 +45,6 @@ end
 function SetShakeAmount(amount)
 	screenShakeSprite:SetShakeAmount(amount)
 end
-
--- Create objects and run functions to start the game
-Background()
-Player(30, 120)
-CreateScoreDisplay()
-StartSpawner()
 
 -- Main game update function
 function pd.update()
