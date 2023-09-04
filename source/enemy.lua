@@ -4,8 +4,7 @@ local gfx <const> = pd.graphics
 class('Enemy').extends(gfx.sprite)
 
 function Enemy:init(x, y, moveSpeed)
-	local enemyImage = gfx.image.new("images/goblin")
-	self:setImage(enemyImage)
+	self:setImage(gfx.image.new("images/goblin"))
 	self:moveTo(x, y)
 	self:add()
 

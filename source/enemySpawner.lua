@@ -31,7 +31,7 @@ end
 
 function ClearEnemies()
 	local allSprites = gfx.sprite.getAllSprites()
-	for index, sprite in ipairs(allSprites) do
+	for _, sprite in ipairs(allSprites) do
 		if sprite:isa(Enemy) then
 			sprite:remove()
 		end

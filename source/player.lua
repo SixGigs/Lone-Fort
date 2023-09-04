@@ -6,8 +6,7 @@ local gfx <const> = pd.graphics
 class('Player').extends(gfx.sprite)
 
 function Player:init(x, y)
-	local playerImage = gfx.image.new("images/player")
-	self:setImage(playerImage)
+	self:setImage(gfx.image.new("images/player"))
 	self:moveTo(x, y)
 	self:add()
 
@@ -28,7 +27,7 @@ function Player:update()
 
 	if pd.buttonJustPressed(pd.kButtonA) then
 		self.shootSFX:play()
-		Bullet(self.x + 16, self.y, 5)
+		Bullet(self.x + 16, self.y, 10) -- Used to be 5
 		SetShakeAmount(2)
 	end
 end

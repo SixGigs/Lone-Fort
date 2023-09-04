@@ -26,6 +26,7 @@ local gfx <const> = pd.graphics
 -- Create ScreenShake object
 local screenShakeSprite = ScreenShake()
 
+-- Create the reset get function
 function ResetGame()
 	ResetScore()
 	ClearEnemies()
@@ -34,15 +35,18 @@ function ResetGame()
 	SetShakeAmount(10)
 end
 
+-- Create a global function for setting the screen shake amount
 function SetShakeAmount(amount)
 	screenShakeSprite:SetShakeAmount(amount)
 end
 
+-- Create objects and run functions to start the game
 Background()
 Player(30, 120)
 CreateScoreDisplay()
 StartSpawner()
 
+-- Main game update function
 function pd.update()
     gfx.sprite.update()
     pd.timer.updateTimers()
