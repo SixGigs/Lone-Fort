@@ -32,15 +32,6 @@ SCENE_MANAGER = SceneManager()
 
 TitleScene()
 
--- Create the reset get function
-function ResetGame()
-	ResetScore()
-	StopSpawner()
-	ClearEnemies()
-	StartSpawner()
-	SetShakeAmount(10)
-end
-
 -- Create a global function for setting the screen shake amount
 function SetShakeAmount(amount)
 	screenShakeSprite:SetShakeAmount(amount)
