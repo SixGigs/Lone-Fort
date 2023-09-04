@@ -7,6 +7,9 @@
         "class",
         "Bullet",
         "Enemy",
-        "Background"
+        "Background",
+        "TitleScene",
+        "SceneManager",
+        "GameScene"
     ]
 }
