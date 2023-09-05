@@ -10,6 +10,7 @@ function CreateScoreDisplay()
 	UpdateDisplay()
 	scoreSprite:setCenter(0, 0)
 	scoreSprite:moveTo(320, 4)
+	scoreSprite:setZIndex(32767)
 	scoreSprite:add()
 end
 

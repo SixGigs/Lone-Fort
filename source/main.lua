@@ -12,14 +12,16 @@ import "CoreLibs/graphics"
 import "CoreLibs/sprites"
 import "CoreLibs/timer"
 
--- My LUA Files
-import "scripts/player"
-import "enemySpawner"
-import "scoreDisplay"
+-- Libraries
 import "scripts/libraries/screenShake"
 import "scripts/libraries/sceneManager"
-import "titleScene"
-import "gameScene"
+
+-- Scripts
+import "scripts/player"
+import "scripts/enemySpawner"
+import "scripts/scoreDisplay"
+import "scripts/titleScene"
+import "scripts/gameScene"
 
 -- PlayDate shorthand constants
 local pd <const> = playdate

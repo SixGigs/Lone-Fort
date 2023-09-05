@@ -2,6 +2,7 @@
 local pd <const> = playdate
 local gfx <const> = pd.graphics
 
+
 local fadedRects = {}
 for i=0,1,0.01 do
 	local fadedImage = gfx.image.new(400, 240)
@@ -14,6 +15,7 @@ for i=0,1,0.01 do
 end
 fadedRects[100] = gfx.image.new(400, 240, gfx.kColorBlack)
 
+-- Scene Manager Class
 class('SceneManager').extends()
 
 function SceneManager:init()
