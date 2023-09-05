@@ -16,7 +16,7 @@ end
 function Enemy:update()
 	self:moveBy(-self.moveSpeed, 0)
 	if self.x < 0 then
-		GameScene:ResetGame()
+		ResetGame()
 	end
 end
 

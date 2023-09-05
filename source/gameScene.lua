@@ -13,14 +13,7 @@ function GameScene:init()
 	Player(30, 120)
 	CreateScoreDisplay()
 	StartSpawner()
+	SCREEN_SHAKE_SPRITE = ScreenShake()
 
 	self:add()
-end
-
-function GameScene:ResetGame()
-	ResetScore()
-	StopSpawner()
-	ClearEnemies()
-	StartSpawner()
-	SetShakeAmount(10)
 end
