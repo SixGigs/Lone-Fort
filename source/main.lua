@@ -13,8 +13,7 @@ import "CoreLibs/sprites"
 import "CoreLibs/timer"
 
 -- My LUA Files
-import "player"
-import "background"
+import "scripts/player"
 import "enemySpawner"
 import "scoreDisplay"
 import "screenShake"
