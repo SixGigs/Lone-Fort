@@ -27,7 +27,7 @@ function Player:update()
 
 	if pd.buttonJustPressed(pd.kButtonA) then
 		self.shootSFX:play()
-		Bullet(self.x + 16, self.y, 20) -- Used to be 5
-		SetShakeAmount(2)
+		Bullet(self.x + 16, self.y, 40) -- Used to be 5
+		SCREEN_SHAKE_SPRITE:SetShakeAmount(2)
 	end
 end
