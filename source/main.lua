@@ -12,38 +12,32 @@ import "CoreLibs/graphics"
 import "CoreLibs/sprites"
 import "CoreLibs/timer"
 
--- My LUA Files
-import "player"
-import "background"
-import "enemySpawner"
-import "scoreDisplay"
-import "screenShake"
-import "sceneManager"
-import "titleScene"
-import "gameScene"
+-- Libraries
+import "scripts/libraries/screenShake"
+import "scripts/libraries/sceneManager"
+
+-- Scripts
+import "scripts/player"
+import "scripts/enemySpawner"
+import "scripts/scoreDisplay"
+import "scripts/titleScene"
+import "scripts/gameScene"
 
 -- PlayDate shorthand constants
 local pd <const> = playdate
 local gfx <const> = pd.graphics
 
--- Create ScreenShake object
-local screenShakeSprite = ScreenShake()
 SCENE_MANAGER = SceneManager()
 
 TitleScene()
 
--- Create the reset get function
+-- Reset game
 function ResetGame()
 	ResetScore()
 	StopSpawner()
 	ClearEnemies()
 	StartSpawner()
-	SetShakeAmount(10)
-end
-
--- Create a global function for setting the screen shake amount
-function SetShakeAmount(amount)
-	screenShakeSprite:SetShakeAmount(amount)
+	SCREEN_SHAKE_SPRITE:SetShakeAmount(10)
 end
 
 -- Main game update function

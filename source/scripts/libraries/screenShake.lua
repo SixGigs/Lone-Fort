@@ -1,6 +1,16 @@
+--[[
+	Lua programming standards:
+	--------------------------
+	Constants ---> ALL_CAPS
+	Functions ---> CamelCase
+	Variables ---> lower_case
+]]--
+
+-- PlayDate shorthand constants
 local pd <const> = playdate
 local gfx <const> = pd.graphics
 
+-- Screen Shake Class
 class('ScreenShake').extends(gfx.sprite)
 
 function ScreenShake:init()

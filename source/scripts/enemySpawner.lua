@@ -1,4 +1,4 @@
-import "enemy"
+import "scripts/enemy"
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics
@@ -19,7 +19,7 @@ function CreateTimer()
 end
 
 function SpawnEnemy()
-	local spawnPosition = math.random(10, 230)
+	local spawnPosition = math.random(32, 208)
 	Enemy(430, spawnPosition, 1)
 end
 
