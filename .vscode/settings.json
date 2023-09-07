@@ -11,6 +11,10 @@
         "TitleScene",
         "SceneManager",
         "GameScene",
-        "GameOverScene"
+        "GameOverScene",
+        "AnimatedSprite",
+        "json",
+        "printTable",
+        "GunSmoke"
     ]
 }
