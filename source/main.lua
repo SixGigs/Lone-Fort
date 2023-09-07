@@ -15,6 +15,7 @@ import "CoreLibs/timer"
 -- Libraries
 import "scripts/libraries/screenShake"
 import "scripts/libraries/sceneManager"
+import "scripts/libraries/AnimatedSprite"
 
 -- Scripts
 import "scripts/player"
@@ -23,6 +24,7 @@ import "scripts/scoreDisplay"
 import "scripts/titleScene"
 import "scripts/gameScene"
 import "scripts/gameOverScene"
+import "scripts/gunSmoke"
 
 -- PlayDate shorthand constants
 local pd <const> = playdate
