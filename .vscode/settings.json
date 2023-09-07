@@ -10,6 +10,7 @@
         "Background",
         "TitleScene",
         "SceneManager",
-        "GameScene"
+        "GameScene",
+        "GameOverScene"
     ]
 }

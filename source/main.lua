@@ -22,6 +22,7 @@ import "scripts/enemySpawner"
 import "scripts/scoreDisplay"
 import "scripts/titleScene"
 import "scripts/gameScene"
+import "scripts/gameOverScene"
 
 -- PlayDate shorthand constants
 local pd <const> = playdate
