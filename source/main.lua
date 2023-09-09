@@ -1,6 +1,10 @@
 --[[
 	Lua programming standards:
 	--------------------------
+	Formatting conventions:
+	Indentation ---> Tabs (not 4 spaces)
+	
+	Naming conventions:
 	Constants ---> ALL_CAPS
 	Functions ---> CamelCase
 	Variables ---> lower_case
@@ -30,8 +34,8 @@ import "scripts/gunSmoke"
 local pd <const> = playdate
 local gfx <const> = pd.graphics
 
+-- Create the scene manager & load the title scene
 SCENE_MANAGER = SceneManager()
-
 TitleScene()
 
 -- Reset game

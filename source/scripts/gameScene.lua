@@ -11,7 +11,7 @@ function GameScene:init()
 	end)
 
 	Player(68, 120)
-	CreateScoreDisplay()
+	CreateScoreDisplay(2, 2, 10)
 	StartSpawner()
 	SCREEN_SHAKE_SPRITE = ScreenShake()
 
