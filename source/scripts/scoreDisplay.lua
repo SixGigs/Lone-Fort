@@ -4,7 +4,7 @@ local gfx <const> = pd.graphics
 local scoreSprite
 
 -- Load my custom font and set it
-local theBoldBoy = gfx.font.new("fonts/boldboy-table-10-10")
+local theBoldBoy = gfx.font.new("fonts/boldboywhiteoutline-table-12-12")
 gfx.setFont(theBoldBoy)
 
 function CreateScoreDisplay(x, y, value)
@@ -13,7 +13,7 @@ function CreateScoreDisplay(x, y, value)
 	UpdateDisplay()
 	scoreSprite:setCenter(0, 0)
 	scoreSprite:moveTo(x, y)
-	scoreSprite:setZIndex(32767)
+	scoreSprite:setZIndex(10000)
 	scoreSprite:add()
 end
 
