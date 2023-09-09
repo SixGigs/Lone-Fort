@@ -1,0 +1,20 @@
+{
+    "Lua.diagnostics.globals": [
+        "import",
+        "playdate",
+        "ScreenShake",
+        "Player",
+        "class",
+        "Bullet",
+        "Enemy",
+        "Background",
+        "TitleScene",
+        "SceneManager",
+        "GameScene",
+        "GameOverScene",
+        "AnimatedSprite",
+        "json",
+        "printTable",
+        "GunSmoke"
+    ]
+}
