@@ -5,7 +5,7 @@
 	Indentation ---> Tabs (not 4 spaces)
 	
 	Naming conventions:
-	Constants ---> ALL_CAPS
+	Globals   ---> ALL_CAPS
 	Functions ---> CamelCase
 	Variables ---> lower_case
 ]]--
@@ -37,6 +37,7 @@ local gfx <const> = pd.graphics
 -- Create the scene manager & load the title scene
 SCENE_MANAGER = SceneManager()
 TitleScene()
+pd.drawFPS(2, 20)
 
 -- Reset game
 function ResetGame()

@@ -1,10 +1,17 @@
+-- Import the enemy to manage collisions
 import "enemy"
 
+-- PlayDate shorthand constants
 local pd <const> = playdate
 local gfx <const> = pd.graphics
 
+-- Create the bullet class
 class('Bullet').extends(gfx.sprite)
 
+---Creates an instance of the bullet at the position & speed given
+---@param x     integer The X position of the bullet (0 - 400)
+---@param y     integer The Y position of the bullet (0 - 240)
+---@param speed integer The speed the bullet travels at
 function Bullet:init(x, y, speed)
 	self:setImage(gfx.image.new("images/bullet"))
 	self:setCollideRect(0, 0, self:getSize())
@@ -15,6 +22,8 @@ function Bullet:init(x, y, speed)
 	self.dieSFX = pd.sound.fileplayer.new("sounds/kill")
 end
 
+-- This method runs every frame when bullet is added to the sprite group,
+-- It moves the bullet, removes the bullet, and handles collisions
 function Bullet:update()
 	local actualX, _, collisions, length = self:moveWithCollisions(self.x + self.speed, self.y)
 	if length > 0 then
@@ -23,7 +32,7 @@ function Bullet:update()
 			if collidedObject:isa(Enemy) then
 				self.dieSFX:play()
 				collidedObject:remove()
-				IncrementScore()
+				IncrementScore(1)
 			end
 		end
 		self:remove()
