@@ -2,24 +2,23 @@ local pd <const> = playdate
 local gfx <const> = pd.graphics
 
 local scoreSprite
-local score
 
 -- Load my custom font and set it
 local theBoldBoy = gfx.font.new("fonts/boldboy-table-10-10")
 gfx.setFont(theBoldBoy)
 
-function CreateScoreDisplay()
+function CreateScoreDisplay(x, y, value)
 	scoreSprite = gfx.sprite.new()
-	score = 0
+	SCORE = value
 	UpdateDisplay()
 	scoreSprite:setCenter(0, 0)
-	scoreSprite:moveTo(2, 2)
+	scoreSprite:moveTo(x, y)
 	scoreSprite:setZIndex(32767)
 	scoreSprite:add()
 end
 
 function UpdateDisplay()
-	local scoreText = "Score: " .. score
+	local scoreText = "Score: " .. SCORE
 	local textWidth, textHeight = gfx.getTextSize(scoreText)
 	local scoreImage = gfx.image.new(textWidth, textHeight)
 	gfx.pushContext(scoreImage)
@@ -29,11 +28,11 @@ function UpdateDisplay()
 end
 
 function IncrementScore()
-	score = score + 1
+	SCORE = SCORE + 1
 	UpdateDisplay()
 end
 
 function ResetScore()
-	score = 0
+	SCORE = 0
 	UpdateDisplay()
 end

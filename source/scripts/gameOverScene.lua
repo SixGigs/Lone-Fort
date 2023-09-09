@@ -3,7 +3,8 @@ local gfx <const> = pd.graphics
 
 class('GameOverScene').extends(gfx.sprite)
 
-function GameOverScene:init()
+function GameOverScene:init(score)
+	CreateScoreDisplay(2, 162, score)
 	self:setImage(gfx.image.new("images/gameover"))
 	self:moveTo(200, 120)
 	self:add()
