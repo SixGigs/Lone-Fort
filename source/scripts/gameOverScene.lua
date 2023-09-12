@@ -8,7 +8,7 @@ class('GameOverScene').extends(gfx.sprite)
 ---Load the Gameover Scene
 ---@param score integer The final score of the player
 function GameOverScene:init(score)
-	CreateScoreDisplay(140, 136, score)
+	CreateScoreDisplay(140, 116, score)
 	self:setImage(gfx.image.new("images/gameover"))
 	self:moveTo(200, 120)
 	self:add()
