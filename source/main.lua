@@ -25,10 +25,12 @@ import "scripts/libraries/AnimatedSprite"
 import "scripts/player"
 import "scripts/enemySpawner"
 import "scripts/scoreDisplay"
-import "scripts/titleScene"
-import "scripts/gameScene"
-import "scripts/gameOverScene"
 import "scripts/gunSmoke"
+
+-- Scenes
+import "scripts/scenes/titleScene"
+import "scripts/scenes/gameScene"
+import "scripts/scenes/gameOverScene"
 
 -- PlayDate shorthand constants
 local pd <const> = playdate

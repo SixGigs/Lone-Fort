@@ -2,7 +2,7 @@
 local pd <const> = playdate
 local gfx <const> = pd.graphics
 
--- Crete the GameOverScene class
+-- Create the GameOverScene class
 class('GameOverScene').extends(gfx.sprite)
 
 ---Load the Gameover Scene
