@@ -25,7 +25,7 @@ function Enemy:update()
 	self:moveBy(-self.moveSpeed, 0)
 	if self.x < 116 then
 		--ResetGame()
-		SCENE_MANAGER:switchScene(GameOverScene, "fade", SCORE)
+		SCENE_MANAGER:switchScene(GameSceneGameOver, "fade", SCORE)
 	end
 end
 

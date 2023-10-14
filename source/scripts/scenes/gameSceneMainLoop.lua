@@ -3,10 +3,10 @@ local pd <const> = playdate
 local gfx <const> = pd.graphics
 
 -- Create the GameScene class
-class('GameScene').extends(gfx.sprite)
+class('GameSceneMainLoop').extends(gfx.sprite)
 
 -- Create an instance of the game
-function GameScene:init()
+function GameSceneMainLoop:init()
 	-- Background
 	local backgroundImage = gfx.image.new("images/background")
 	gfx.sprite.setBackgroundDrawingCallback(function()
