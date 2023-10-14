@@ -28,9 +28,9 @@ import "scripts/scoreDisplay"
 import "scripts/gunSmoke"
 
 -- Scenes
-import "scripts/scenes/titleScene"
-import "scripts/scenes/gameScene"
-import "scripts/scenes/gameOverScene"
+import "scripts/scenes/gameSceneTitleScreen"
+import "scripts/scenes/gameSceneMainLoop"
+import "scripts/scenes/gameSceneGameOver"
 
 -- PlayDate shorthand constants
 local pd <const> = playdate
@@ -38,7 +38,7 @@ local gfx <const> = pd.graphics
 
 -- Create the scene manager & load the title scene
 SCENE_MANAGER = SceneManager()
-TitleScene()
+GameSceneTitleScreen()
 pd.drawFPS(2, 20)
 
 -- Reset game

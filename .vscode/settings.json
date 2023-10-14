@@ -8,13 +8,13 @@
         "Bullet",
         "Enemy",
         "Background",
-        "TitleScene",
         "SceneManager",
-        "GameScene",
-        "GameOverScene",
         "AnimatedSprite",
         "json",
         "printTable",
-        "GunSmoke"
+        "GunSmoke",
+        "GameSceneGameOver",
+        "GameSceneMainLoop",
+        "GameSceneTitleScreen"
     ]
 }
