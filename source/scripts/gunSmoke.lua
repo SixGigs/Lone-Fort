@@ -23,12 +23,16 @@ function GunSmoke:init(x, y)
 
     -- Set a timer, and after half a second delete the instance of itself
     pd.timer.performAfterDelay(500, function()
-        self:remove()
+        if not GAMEOVER then
+            self:remove()
+        end
     end)
 end
 
 -- This method runs every frame when the gun smoke is added to the sprite group
 -- It allows the gunsmoke animation to play
 function GunSmoke:update()
-    self:updateAnimation()
+    if not GAMEOVER then
+        self:updateAnimation()
+    end
 end

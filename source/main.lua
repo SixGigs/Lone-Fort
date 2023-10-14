@@ -38,6 +38,7 @@ local gfx <const> = pd.graphics
 
 -- Create the scene manager & load the title scene
 SCENE_MANAGER = SceneManager()
+GAMEOVER = false
 GameSceneTitleScreen()
 pd.drawFPS(2, 20)
 
