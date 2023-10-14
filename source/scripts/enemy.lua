@@ -22,12 +22,15 @@ end
 -- This method runs every frame when the enemy is added to the sprite group
 -- It makes the enemy move forward and detects when it reaches the goal
 function Enemy:update()
-	if not GAMEOVER then
-		self:moveBy(-self.moveSpeed, 0)
-		if self.x < 116 then
-			GAMEOVER = true
-			SCENE_MANAGER:switchScene(GameSceneGameOver, "fade", SCORE)
-		end
+	-- If the game is over then the enemies no longer need to move forward
+	if GAMEOVER then
+		return
+	end
+
+	self:moveBy(-self.moveSpeed, 0)
+	if self.x < 116 then
+		GAMEOVER = true
+		SCENE_MANAGER:switchScene(GameSceneGameOver, "fade", SCORE)
 	end
 end
 

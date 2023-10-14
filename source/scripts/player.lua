@@ -23,22 +23,25 @@ end
 -- This method runs every frame when the player is added to the sprite group
 -- It allows the player to move up, down, and create bullets with the A button
 function Player:update()
-	if not GAMEOVER then
-		if pd.buttonIsPressed(pd.kButtonUp) then
-			if self.y > 48 then
-				self:moveBy(0, -self.speed)
-			end
-		elseif pd.buttonIsPressed(pd.kButtonDown) then
-			if self.y < 178 then
-				self:moveBy(0, self.speed)
-			end
-		end
+	-- If the game is over no need to have the player move or gun fire
+	if GAMEOVER then
+		return
+	end
 
-		if pd.buttonJustPressed(pd.kButtonA) then
-			self.shootSFX:play()
-			Bullet(self.x + 48, self.y, 40)
-			GunSmoke(self.x + 48, self.y)
-			SCREEN_SHAKE_SPRITE:SetShakeAmount(5)
+	if pd.buttonIsPressed(pd.kButtonUp) then
+		if self.y > 48 then
+			self:moveBy(0, -self.speed)
 		end
+	elseif pd.buttonIsPressed(pd.kButtonDown) then
+		if self.y < 178 then
+			self:moveBy(0, self.speed)
+		end
+	end
+
+	if pd.buttonJustPressed(pd.kButtonA) then
+		self.shootSFX:play()
+		Bullet(self.x + 48, self.y, 40)
+		GunSmoke(self.x + 48, self.y)
+		SCREEN_SHAKE_SPRITE:SetShakeAmount(5)
 	end
 end

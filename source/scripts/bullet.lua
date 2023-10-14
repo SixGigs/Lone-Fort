@@ -25,20 +25,23 @@ end
 -- This method runs every frame when bullet is added to the sprite group,
 -- It moves the bullet, removes the bullet, and handles collisions
 function Bullet:update()
-	if not GAMEOVER then
-		local actualX, _, collisions, length = self:moveWithCollisions(self.x + self.speed, self.y)
-		if length > 0 then
-			for _, collision in pairs(collisions) do
-				local collidedObject = collision['other']
-				if collidedObject:isa(Enemy) then
-					self.dieSFX:play()
-					collidedObject:remove()
-					IncrementScore(1)
-				end
+	-- No need to move the bullet or check for collisions if the game is over
+	if GAMEOVER then
+		return
+	end
+
+	local actualX, _, collisions, length = self:moveWithCollisions(self.x + self.speed, self.y)
+	if length > 0 then
+		for _, collision in pairs(collisions) do
+			local collidedObject = collision['other']
+			if collidedObject:isa(Enemy) then
+				self.dieSFX:play()
+				collidedObject:remove()
+				IncrementScore(1)
 			end
-			self:remove()
-		elseif actualX > 400 then
-			self:remove()
 		end
+		self:remove()
+	elseif actualX > 400 then
+		self:remove()
 	end
 end
