@@ -14,7 +14,7 @@ function Enemy:init(x, y, moveSpeed)
 	self:moveTo(x, y)
 	self:add()
 
-	self:setCollideRect(32, 16, 16, 16)
+	self:setCollideRect(32, 16, 16, 32)
 
 	self.moveSpeed = moveSpeed
 end
@@ -30,6 +30,7 @@ function Enemy:update()
 	self:moveBy(-self.moveSpeed, 0)
 	if self.x < 116 then
 		GAMEOVER = true
+		SCREEN_SHAKE_SPRITE:SetShakeAmount(15)
 		SCENE_MANAGER:switchScene(GameSceneGameOver, "fade", SCORE)
 	end
 end
