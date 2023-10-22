@@ -12,6 +12,7 @@ class('Player').extends(gfx.sprite)
 ---@param x integer The X position of where to spawn the player (0 - 400)
 ---@param y integer The Y position of where to spawn the player (0 - 240)
 function Player:init(x, y)
+	--- TODO: Should the player be called "Conrad"!?
 	self:setImage(gfx.image.new("images/player"))
 	self:moveTo(x, y)
 	self:add()
