@@ -15,6 +15,7 @@
         "GunSmoke",
         "GameSceneGameOver",
         "GameSceneMainLoop",
-        "GameSceneTitleScreen"
+        "GameSceneTitleScreen",
+        "Selector"
     ]
 }

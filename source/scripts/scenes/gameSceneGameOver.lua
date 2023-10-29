@@ -20,5 +20,7 @@ end
 function GameSceneGameOver:update()
 	if pd.buttonJustPressed(pd.kButtonA) then
 		SCENE_MANAGER:switchScene(GameSceneMainLoop, "wipe")
+	elseif pd.buttonJustPressed(pd.kButtonB) then
+		SCENE_MANAGER:switchScene(GameSceneTitleScreen, "fade")
 	end
 end
