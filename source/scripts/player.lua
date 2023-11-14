@@ -6,18 +6,25 @@ local pd <const> = playdate
 local gfx <const> = pd.graphics
 
 -- Create the player class
-class('Player').extends(gfx.sprite)
+class('Player').extends(AnimatedSprite)
 
 ---Create an instance of the player at the X and Y values provided
 ---@param x integer The X position of where to spawn the player (0 - 400)
 ---@param y integer The Y position of where to spawn the player (0 - 240)
 function Player:init(x, y)
 	--- TODO: Should the player be called "Conrad"!?
-	self:setImage(gfx.image.new("images/player"))
+	local playerImageTable = gfx.imagetable.new("images/player-table-64-64")
+	Player.super.init(self, playerImageTable)
+
+	-- Set the animation tiles and speed, "playAnimation" starts the animation
+	self:addState("stationary", 1, 1)
+	self:addState("shooting", 2, 2)
+	self:playAnimation()
 	self:moveTo(x, y)
 	self:add()
 
 	self.speed = 3
+	self.shooting = false
 	self.shootSFX = pd.sound.fileplayer.new("sounds/shoot")
 end
 
@@ -39,10 +46,19 @@ function Player:update()
 		end
 	end
 
-	if pd.buttonJustPressed(pd.kButtonA) then
+	if pd.buttonJustPressed(pd.kButtonA) and self.shooting == false then
 		self.shootSFX:play()
-		Bullet(self.x + 48, self.y, 40)
+		Bullet(self.x + 48, self.y, 48)
 		GunSmoke(self.x + 48, self.y)
 		SCREEN_SHAKE_SPRITE:SetShakeAmount(5)
+		self.shooting = true
+		self:changeState("shooting")
+
+		pd.timer.performAfterDelay(200, function()
+			self:changeState("stationary")
+			self.shooting = false
+		end)
 	end
+
+	self:updateAnimation()
 end
