@@ -44,11 +44,8 @@ pd.drawFPS(2, 20)
 
 -- Reset game
 function ResetGame()
-	ResetScore()
 	StopSpawner()
 	ClearEnemies()
-	StartSpawner()
-	SCREEN_SHAKE_SPRITE:SetShakeAmount(10)
 end
 
 -- Main game update function

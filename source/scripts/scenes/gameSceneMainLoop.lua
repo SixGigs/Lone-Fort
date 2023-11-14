@@ -2,6 +2,20 @@
 local pd <const> = playdate
 local gfx <const> = pd.graphics
 
+-- Create an array of tags (used to identify collisions)
+TAGS = {
+	Player = 1,
+	Hazard = 2,
+	Pickup = 3
+}
+
+-- Create the array of Z indexes (how far they are in the foreground)
+Z_INDEXES = {
+	Player = 100,
+	Hazard = 20,
+	Pickup = 50
+}
+
 -- Create the GameScene class
 class('GameSceneMainLoop').extends(gfx.sprite)
 
