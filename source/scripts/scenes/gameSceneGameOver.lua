@@ -16,7 +16,7 @@ function GameSceneGameOver:init(score)
 end
 
 --- This method runs every frame when the GameOverScene is added to the sprite group
---- It listens for an A button press to take the player back to the game
+--- It takes the player to the game if A is pressed and title screen if B is pressed
 function GameSceneGameOver:update()
 	if pd.buttonJustPressed(pd.kButtonA) then
 		SCENE_MANAGER:switchScene(GameSceneMainLoop, "wipe")
