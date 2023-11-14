@@ -11,20 +11,30 @@ class('Player').extends(AnimatedSprite)
 ---Create an instance of the player at the X and Y values provided
 ---@param x integer The X position of where to spawn the player (0 - 400)
 ---@param y integer The Y position of where to spawn the player (0 - 240)
-function Player:init(x, y)
+function Player:init(x, y, firearm)
 	--- TODO: Should the player be called "Conrad"!?
 	local playerImageTable = gfx.imagetable.new("images/player-table-64-64")
 	Player.super.init(self, playerImageTable)
 
 	-- Set the animation tiles and speed, "playAnimation" starts the animation
 	self:addState("stationary", 1, 1)
-	self:addState("shooting", 2, 2)
+	self:addState("shootRevolver", 2, 2)
 	self:playAnimation()
 	self:moveTo(x, y)
 	self:add()
 
-	self.speed = 3
+	-- States
+	self.firearm = firearm
 	self.shooting = false
+
+	-- Firearms IF Statement
+	if firearm == "Revolver" then
+		self.speed = 4
+		self.bulletSpeed = 48
+		self.chamberingSpeed = 400
+	end
+
+	-- Sound Effects
 	self.shootSFX = pd.sound.fileplayer.new("sounds/shoot")
 end
 
@@ -47,18 +57,35 @@ function Player:update()
 	end
 
 	if pd.buttonJustPressed(pd.kButtonA) and self.shooting == false then
-		self.shootSFX:play()
-		Bullet(self.x + 48, self.y, 48)
-		GunSmoke(self.x + 48, self.y)
-		SCREEN_SHAKE_SPRITE:SetShakeAmount(5)
-		self.shooting = true
-		self:changeState("shooting")
-
-		pd.timer.performAfterDelay(200, function()
-			self:changeState("stationary")
-			self.shooting = false
-		end)
+		self:ShootGun()
 	end
 
 	self:updateAnimation()
+end
+
+function Player:ShootGun()
+	self.shooting = true
+
+	-- Create the right bullet & smoke for the gun
+	if self.firearm == "Revolver" then
+		Bullet(self.x + 48, self.y, self.bulletSpeed)
+		GunSmoke(self.x + 48, self.y)
+		self:changeState("shootRevolver")
+	end
+
+	-- Shake the screen
+	SCREEN_SHAKE_SPRITE:SetShakeAmount(5)
+
+	-- Play the shooting sound effect
+	self.shootSFX:play()
+
+	-- Chamber the next round
+	self:ChamberNextRound()
+end
+
+function Player:ChamberNextRound()
+	pd.timer.performAfterDelay(self.chamberingSpeed, function()
+		self:changeState("stationary")
+		self.shooting = false
+	end)
 end
