@@ -14,7 +14,7 @@ function GameSceneMainLoop:init()
 	end)
 
 	-- Make player, score display, enemy spawner, screen shake
-	Player(68, 120)
+	Player(68, 120, "Revolver")
 	CreateScoreDisplay(2, 2, 0)
 	StartSpawner()
 	SCREEN_SHAKE_SPRITE = ScreenShake()
